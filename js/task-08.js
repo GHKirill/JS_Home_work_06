@@ -1,5 +1,4 @@
 const formRef = document.querySelector(".login-form");
-console.log(formRef.elements.email.value);
 
 formRef.addEventListener("submit", onFormSubmitClick);
 

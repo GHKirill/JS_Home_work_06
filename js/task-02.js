@@ -9,12 +9,13 @@ const ingredients = [
 
 function addHtmlList(array) {
   const ingredientsRef = document.querySelector("#ingredients");
-  array.map((item) => {
+  const ingredientsArray = array.map((item) => {
     let liRef = document.createElement("li");
     liRef.textContent = item;
     liRef.classList.add(".item");
-    ingredientsRef.append(liRef);
+    return liRef;
   });
+  ingredientsRef.append(...ingredientsArray);
 }
 
 addHtmlList(ingredients);

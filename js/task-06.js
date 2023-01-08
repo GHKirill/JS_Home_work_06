@@ -6,9 +6,15 @@ inputFieldRef.addEventListener("blur", () => {
 });
 
 function getStyle(inputLength) {
+  if (inputLength === 0) {
+    inputFieldRef.classList.remove("valid");
+    inputFieldRef.classList.remove("invalid");
+    return;
+  }
   if (attrLength === inputLength) {
     inputFieldRef.classList.add("valid");
     inputFieldRef.classList.remove("invalid");
+    return;
   } else {
     inputFieldRef.classList.remove("valid");
     inputFieldRef.classList.add("invalid");

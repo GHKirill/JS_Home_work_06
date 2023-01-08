@@ -1,5 +1,10 @@
+// function getRandomHexColor() {
+//   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+// }
 function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
 }
 const inputFieldRef = document.querySelector("input");
 const createElementBtn = document.querySelector("[data-create]");
@@ -11,9 +16,10 @@ destroyElementBtn.addEventListener("click", onDestroyElementClick);
 
 function onCreateElementClick() {
   const boxesCollection = [];
+  const startCount = boxesRef.children.length;
   const difference = 10;
-  let numberOfElements = getBoxesCollectionLength();
-  for (let i = 0; i < numberOfElements; i += 1) {
+  let numberOfElements = getBoxesCollectionLength() + startCount;
+  for (let i = startCount; i < numberOfElements; i += 1) {
     boxesCollection.push(createBox(30 + i * difference));
   }
   boxesRef.append(...boxesCollection);
